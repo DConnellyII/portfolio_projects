@@ -102,13 +102,46 @@ FROM nashville_housing
 GROUP BY soldasvacant
 ORDER BY 2;
 
+
+
 --Remove Duplicates
+WITH rownumcte AS (
+  SELECT *,
+    ROW_NUMBER() OVER (
+      PARTITION BY parcelid, propertyaddress, saleprice, saledate, legalreference
+      ORDER BY uniqueid
+    ) AS row_num
+  FROM nashville_housing
+)
+SELECT *
+FROM nashville_housing
+WHERE (parcelid, propertyaddress, saleprice, saledate, legalreference, uniqueid) IN (
+  SELECT parcelid, propertyaddress, saleprice, saledate, legalreference, uniqueid
+  FROM rownumcte
+  WHERE row_num > 1
+);
 
-
+WITH rownumcte AS (
+  SELECT *,
+    ROW_NUMBER() OVER (
+      PARTITION BY parcelid, propertyaddress, saleprice, saledate, legalreference
+      ORDER BY uniqueid
+    ) AS row_num
+  FROM nashville_housing
+)
+SELECT *
+FROM rownumcte
+WHERE row_num > 1
+ORDER BY propertyaddress;
 
 
 
 --Delete Unused Columns
+ALTER TABLE nashville_housing
+DROP COLUMN owneraddress,
+DROP COLUMN taxdistrict,
+DROP COLUMN propertyaddress;
+
 
 
 
