@@ -1,0 +1,21 @@
+CREATE TABLE nashville_housing (
+	UniqueID NUMERIC,
+	ParcelID VARCHAR,
+	LandUse VARCHAR,
+	PropertyAddress VARCHAR,
+	SaleDate DATE,
+	SalePrice VARCHAR,
+	LegalReference VARCHAR,
+	SoldAsVacant VARCHAR,
+	OwnerName VARCHAR,
+	OwnerAddress VARCHAR,
+	Acreage NUMERIC,
+	TaxDistrict VARCHAR,
+	LandValue NUMERIC,
+	BuildingValue NUMERIC,
+	TotalValue NUMERIC,
+	YearBuilt NUMERIC,
+	Bedrooms NUMERIC,
+	FullBath NUMERIC,
+	HalfBath NUMERIC
+	);
