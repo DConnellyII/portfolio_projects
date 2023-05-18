@@ -3,7 +3,7 @@ SELECT *
 FROM nashville_housing
 LIMIT 1000
 
-
+---------------------------------------------------------------------------------------
 
 --Populate Property Address Data
 SELECT *
@@ -25,7 +25,7 @@ WHERE nh1.parcelid = nh2.parcelid
 	AND nh1.uniqueid <> nh2.uniqueid
 	AND nh1.propertyaddress IS NULL;
 
-
+---------------------------------------------------------------------------------------
 
 --Breaking out Property Address into Invidividual Columns (Address, City)
 SELECT propertyaddress
@@ -46,7 +46,7 @@ ADD property_city VARCHAR;
 UPDATE nashville_housing
 SET property_city = SUBSTRING(propertyaddress, POSITION(',' IN propertyaddress) + 1);
 
-
+---------------------------------------------------------------------------------------
 
 --Breaking out Owner Address into Invidividual Columns (Address, City, State)
 SELECT owneraddress
@@ -73,7 +73,7 @@ ADD owner_state VARCHAR;
 UPDATE nashville_housing
 SET owner_state = SPLIT_PART(REPLACE(owneraddress, ',', '.'), '.', -1);
 
-
+---------------------------------------------------------------------------------------
 
 --Change Y and N to Yes and No in the 'Sold as Vacant' field
 SELECT DISTINCT soldasvacant
@@ -102,7 +102,7 @@ FROM nashville_housing
 GROUP BY soldasvacant
 ORDER BY 2;
 
-
+---------------------------------------------------------------------------------------
 
 --Remove Duplicates
 WITH rownumcte AS (
@@ -134,7 +134,7 @@ FROM rownumcte
 WHERE row_num > 1
 ORDER BY propertyaddress;
 
-
+---------------------------------------------------------------------------------------
 
 --Delete Unused Columns
 ALTER TABLE nashville_housing
