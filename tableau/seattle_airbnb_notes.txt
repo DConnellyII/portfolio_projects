@@ -1,0 +1,20 @@
+--Tableau Dataset Location
+https://www.kaggle.com/datasets/alexanderfreberg/airbnb-listings-2016-dataset
+
+
+
+--Import Data to Tableau
+* Drag the Excel file for the Seattle AirBnB data into Tableau
+* Select the worksheets to be worked with (In this case, I'll use the Listing and Calendar worksheets from Excel)
+* Join the to worksheets together Listings.Id = Calendar.Listingid
+* Filter the year to 2016 to focus on 1 year of data
+
+
+
+--Create Tableau Dashboard
+* First I want to visualize the average price of an AirBnB in the different zipcodes
+* Drag Zipcode from Listings into the columns section
+* Drag Price from Calendars into the rows section
+* Make sure to change the Price aggregation from SUM to AVG
+* For ease of use, sort the Zipcode data by Field Data descending to get the prices in average price order
+* For ease of use, drag Zipcode from Listings to the color section in Marks to differenciate the zipcodes
