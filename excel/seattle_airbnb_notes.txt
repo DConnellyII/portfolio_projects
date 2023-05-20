@@ -1,0 +1,56 @@
+--Tableau Dataset Location
+https://www.kaggle.com/datasets/alexanderfreberg/airbnb-listings-2016-dataset
+
+---------------------------------------------------------------------------------------
+
+--Import Data to Tableau
+* Drag the Excel file for the Seattle AirBnB data into Tableau
+* Select the worksheets to be worked with (In this case, I'll use the Listing and Calendar worksheets from Excel)
+* Join the to worksheets together Listings.Id = Calendar.Listingid
+* Filter the year to 2016 to focus on 1 year of data
+
+---------------------------------------------------------------------------------------
+
+--Sheet 1
+* I want to visualize the average price of an AirBnB in the different zipcodes
+* Drag Zipcode from Listings into the columns section
+* Drag Price from Calendars into the rows section (Make sure to change the Price aggregation from SUM to AVG)
+* For ease of use, sort the Zipcode data by Field Data descending to get the prices in average price order
+* For ease of use, drag Zipcode from Listings to the Color section in Marks to differenciate the zipcodes
+
+---------------------------------------------------------------------------------------
+
+--Sheet 2
+* I want to visualize the average price of an AirBnB in the different zipcodes on a map
+* To be consistent, drag Zipcode from Listings into the columns section
+* Select the Show Me tab and choose one of the maps (This will also generate longitude in the columns and latitude in the rows)
+* For ease of use, drag Zipcode from Listings to the color section in Marks to differenciate the zipcodes (colors should match)
+* Switch the Zipcode Mark from Detail to Label to see zipcodes on the map
+* Drag Price from Calendars into the Label section in Marks to show the average price of each zipcode. (Make sure to change the Price aggregation from SUM to AVG and it's Mark is set to Detail to reduce clutter)
+
+---------------------------------------------------------------------------------------
+
+--Sheet 3
+* I want to visualize the best time to put an AirBnB on the market
+* Drag Date from Calender into the columns section
+* Drag price from Calendar into the rows section
+* Switch the Date from Year to Week Number to expand the data by weeks for the year
+
+---------------------------------------------------------------------------------------
+
+--Sheet 4
+* I want to visualize how the number of bedrooms effect price
+* Convert Bedrooms in Listings into a dimension to show the number of bathrooms that may be in one house (It's originally a Measure which is used to aggregate the number of bedroom in total)
+* Drag Bedrooms in Listings into the columns section
+* Drag Price from Listings into the rows section (Make sure to change the Price aggregation from SUM to AVG)
+* Exclude the Null and 0 bedrooms
+* Drag Price from Listings to the Label section in Marks (Make sure to change the Price aggregation from SUM to AVG)
+
+---------------------------------------------------------------------------------------
+
+--Sheet 5
+* I want to visualize the amount of listings there are for the number of bedrooms
+* Drag Bedrooms in Listings into the rows section
+* Exclude the Null and 0 bedrooms
+* Drag Id in Listings into the Text section in Marks
+* Convert Id to Count (Distinct) to see the amount of Id's for each number of bedrooms

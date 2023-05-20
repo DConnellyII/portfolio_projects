@@ -1,9 +1,12 @@
 --Enable filters to easily see column information
 Select the Data tab and click on 'Filter'
 
+---------------------------------------------------------------------------------------
+
 --Remove duplicates from excel spreadsheet
 * Highlight all data, select Data tab in Excel and click on 'Remove Duplicates' (It removed 26 duplicate values)
 
+---------------------------------------------------------------------------------------
 
 --Rename single letters to their complete names to avoid any unecessary confusion
 * Highlight column "B" for marital status and bring up 'Find and Replace'
@@ -13,11 +16,14 @@ Select the Data tab and click on 'Filter'
 * Highlight column "C" for gender and bring up 'Find and Replace'
 * In the 'Find what' section put the letter "M"/"F" and in the 'Replace with' section put the word "Male"/"Female" respectively
 
+---------------------------------------------------------------------------------------
 
 --Create 'Age Brackets' column
 * Insert beside Age column
 * Use a nested 'IF statement' to create age ranges for future dashboard {18-30 (Early Adult), 31-45 (Mid Adult), 46-65 (Late Adult), 66+ (Senior)}
 ===> =IF(L2 >=66, "66+", IF(L2 >=46, "46-65", IF(L2>=31, "31-45", IF(L2<=30, "18-30"))))
+
+---------------------------------------------------------------------------------------
 
 --Build Pivot Tables
 * Select Insert tab and click on "Pivot Table"
@@ -25,6 +31,8 @@ Select the Data tab and click on 'Filter'
 * Select Insert tab and click on recommended charts to select a visualzation
 * Label the chart that was selected within the chart elements
 * Values in the pivot table needed to be reformatted for ease of use
+
+---------------------------------------------------------------------------------------
 
 --Build Dashboard
 * Copy all charts/visualizations and paste them onto new worksheet
